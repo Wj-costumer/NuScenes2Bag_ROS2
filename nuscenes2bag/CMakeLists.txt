@@ -21,17 +21,7 @@ find_package(pcl_msgs REQUIRED)
 find_package(pcl_ros REQUIRED)
 find_package(pcl_conversions REQUIRED)
 find_package(message_interfaces REQUIRED)
-
-# set(Boost_OPTIONAL_DIRS /usr/include/boost/optional)
 find_package(Boost 1.71.0 REQUIRED COMPONENTS atomic filesystem iostreams locale program_options system thread)
-
-# add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
-
-# add_definitions(-D_WIN32_WINNT=0x0601)
-
-# set(Boost_USE_STATIC_LIBS        ON) # only find static libs
-# set(Boost_USE_MULTITHREADED      ON)
-# set(Boost_USE_STATIC_RUNTIME    OFF)
 
 add_executable(
   nuscenes_converter
@@ -47,7 +37,7 @@ add_executable(
   src/RadarDirectoryConverter.cpp
   src/SceneConverter.cpp
   src/utils.cpp
-  )	# 修改2
+  )
   
 ament_target_dependencies(
   nuscenes_converter 
@@ -58,7 +48,7 @@ ament_target_dependencies(
   message_interfaces)
 
 install(TARGETS
-  nuscenes_converter												# 修改4
+  nuscenes_converter												
   DESTINATION lib/${PROJECT_NAME})
 
 INCLUDE_DIRECTORIES(
